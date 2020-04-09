@@ -1,0 +1,42 @@
+body{
+    background-image: url("Images/ny.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.box-options{
+
+}
+.nav-bar{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.options-box{
+    color: white;
+    text-align: center;
+    font-family: "BebasNeue-Regular";
+    font-size: 30px;
+    letter-spacing: 8px;
+}
+.title{
+    font-family: "BebasNeue-Regular",Arial, Helvetica, sans-serif;
+    font-size: 100px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-shadow: rgb(104, 103, 103) 7px 7px 7px;
+}
+
+@font-face{
+    font-family: "BebasNeue-Regular";
+    src: url("Fonts/BebasNeue/BebasNeue-Regular.otf") format("opentype");
+    font-style: normal;
+}
+
+@font-face{
+    font-family: "BebasNeue-Light";
+    src: url("Fonts/BebasNeue/BebasNeue-Light.otf") format("opentype");
+    font-style: normal;
+}
