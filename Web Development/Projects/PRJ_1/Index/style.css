@@ -1,18 +1,37 @@
 body{
-    background-image: url("Images/ny.jpg");
+    background-image: url("Images/building.jpg");
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
 .box-options{
-
+    font-family: BebasNeue-Regular;
+    letter-spacing: 5px;
+    font-size: 20px;
 }
-.nav-bar{
+ul.nav-bar{
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
+    background-color: #333;
+}
+li.nav-bar{
+    float: left;
+}
+li.nav-bar a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: transform 0.6s;
+}
+li.nav-bar a:hover{
+    background-color: #111;
+    color: aquamarine;
+    transform: scale(1.1);
 }
 .options-box{
     color: white;
@@ -25,10 +44,16 @@ body{
     font-family: "BebasNeue-Regular",Arial, Helvetica, sans-serif;
     font-size: 100px;
     text-align: center;
-    color: rgb(255, 255, 255);
     text-shadow: rgb(104, 103, 103) 7px 7px 7px;
+    color: white;
 }
-
+.show-bio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bio{
+}
 @font-face{
     font-family: "BebasNeue-Regular";
     src: url("Fonts/BebasNeue/BebasNeue-Regular.otf") format("opentype");
@@ -40,3 +65,4 @@ body{
     src: url("Fonts/BebasNeue/BebasNeue-Light.otf") format("opentype");
     font-style: normal;
 }
+

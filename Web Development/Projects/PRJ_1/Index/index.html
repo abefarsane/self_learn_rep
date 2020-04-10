@@ -2,21 +2,30 @@
     <head>
         <title>First Project</title>
         <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="jquery.js"></script>
     </head>
 
     <body>
+        <script>
+            $(document).ready(function(){
+                $("show-bio").click(function(){
+                    $("div.bio").show("slow");
+                    event.preventDefault();
+                });
+            });
+        </script>
         <div class="box-options">
             <ul class="nav-bar">
-                <li>
+                <li class="nav-bar">
                     <a href="Secondary Pages/Projects.html">Projects</a>
                 </li>
-                <li>
+                <li class="nav-bar">
                     <a href="Secondary Pages/Goals.html">My goals</a>
                 </li>
-                <li>
+                <li class="nav-bar">
                     <a href="Secondary Pages/School.html">School process</a>
                 </li>
-                <li>
+                <li class="nav-bar">
                     <a href="Secondary Pages/WebSiteBuild.html">Website Infos</a>
                 </li>
             </ul>
@@ -24,7 +33,11 @@
         <div class="box-main-title">
             <h1 class="title">Abe Farsane.</h1>
             <div class="box-main-title-text">
-
+                <button class="show-bio">Biografia</button>
+                <div class="bio">
+                    <p>A personal blog is the easiest way to connect with your audience. You get to introduce yourself and bare your soul online. 
+                       Followers that subscribe are going to be people that share your mindset, or people that are interested in what you have to say and enjoy the way you say it.</p>
+                </div>
             </div>
         </div>
     </body>
