@@ -1,0 +1,35 @@
+body{
+    border: 20px solid #bdc3c7;
+    font-family: 'Source Sans Pro', sans-serif;
+    max-width: 700px;
+    margin: 0 auto;
+    width: 80%;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.date{
+    color: #3498db;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+h2{
+    font-weight: 900;
+    text-transform: capitalize;
+}
+
+p{
+    padding: 0;
+    font-weight: 600;
+}
+#intro{
+    border-left: 5px solid #bdc3c7;
+    padding-left: 5px;
+}
+
+hr{
+    size: 0.5px;
+    color: #bdc3c7;
+}
