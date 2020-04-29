@@ -1,0 +1,29 @@
+.nav-link{
+    font-size: 1.2em;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+.nav-link:hover{
+    color: rgb(4, 158, 185);
+}
+body{
+    background: url('../img/sfondo_1.png') no-repeat;
+    background-size: cover;
+    
+}
+html{
+    height: 100%;
+}
+.jumbotron{
+    background: none;
+    color: white;
+    margin-top: 15%;
+}
+.jumbotron strong{
+    font-family: Pacifico;
+}
+.jumbotron h1{
+    font-size: 50px;
+    font-weight: 100;
+}
+
