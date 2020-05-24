@@ -1,85 +1,88 @@
-var difficultyChanged = false;
+//Take the elements from the HTML 'code'
+var spans = document.querySelectorAll('span')
+var btns = document.querySelectorAll('button')
+var squares = document.querySelectorAll('square')
+var h1 = document.querySelector('h1')
+var easyOrNot = true;
+var pickedColor = ''
+var colors = []
+//Function that starts the game
 
+fillArrayClrs()
+console.log(colors)
+setSQRColors('casual')
 
-var difficultyBtnEASY = document.querySelector('#easy').addEventListener('click', function(){
-    var difficulty = 3;
-    var colori = randColorGenerator(3);
-    var pickedColor = colori[Math.floor(Math.random() * difficulty)];
-    var squares = document.querySelectorAll('.square');
-    var titleRGB = document.querySelector('#rgbColor');
-    var statusMessage = document.querySelector('#message');
-    titleRGB.textContent = pickedColor.toUpperCase();
+//Add event listeners
+btns[0].addEventListener('click', function(){
+    changeColors()
+})
 
-    setColorSquares(squares,colori,difficulty);
-
-    for(var i = 0; i < squares.length; i++){
-        squares[i].addEventListener('click', function(){
-            if(this.style.backgroundColor === pickedColor){
-                for(var i = 0; i < 3; i++){
-                    squares[i].style.backgroundColor = titleRGB.textContent;
-                }
-                statusMessage.textContent = 'You won!';
-            }else{
-                this.style.backgroundColor = '#232323';
-                statusMessage.textContent = 'Try again!';
-            }
-        })
+btns[1].addEventListener('click', function(){
+    if(this.classList == 'selected'){
+        changeColors()
+    }else{
+        easyOrNot = true
+        this.classList.add('selected')
+        btns[2].classList.remove('selected')
     }
-});
+})
 
-var difficultyBtnHARD = document.querySelector('#hard').addEventListener('click', function(){
-    var difficulty = 6;
-    var colori = randColorGenerator(6);
-    var pickedColor = colori[Math.floor(Math.random() * difficulty)];
-    var squares = document.querySelectorAll('.square');
-    var titleRGB = document.querySelector('#rgbColor')
-    var statusMessage = document.querySelector('#message');
-    titleRGB.textContent = pickedColor.toUpperCase();
-    difficultyChanged = true;
-
-    setColorSquares(squares,colori,difficulty);
-
-    for(var i = 0; i < 6; i++){
-        squares[i].addEventListener('click', function(){
-            if(this.style.backgroundColor == pickedColor){
-                for(var i = 0; i < squares.length; i++){
-                    squares[i].style.backgroundColor = titleRGB.textContent;
-                }
-                statusMessage.textContent = 'You won!';
-            }else{
-                this.style.backgroundColor = '#232323';
-                statusMessage.textContent = 'Try again!';
-            }
-        })
+btns[2].addEventListener('click', function(){
+    if(this.classList == 'selected'){
+        changeColors()
+    }else{
+        easyOrNot = false
+        this.classList.add('selected')
+        btns[1].classList.remove('selected')
     }
-});
+})
 
-function randColorGenerator(difficulty){
-    var colorArray = [];
-
-    for(var i = 0; i < difficulty; i++){
-        colorArray[i] =   'rgb(' + Math.floor(Math.random() * 255)
-                        + ', '   + Math.floor(Math.random() * 255)
-                        + ', '   + Math.floor(Math.random() * 255)
-                        + ")";
-    };
-    console.log(colorArray);
-    return colorArray;
+for(var i = 0; i < squares.length; i++){
+    squares[i].addEventListener('click', function(){
+        if(this.style.backgroundColor == pickedColor){
+            setSQRColors(pickedColor)
+            h1.style.backgroundColor = pickedColor
+            span[1].textContent = 'Yeah! You won'
+        } else{
+            span[1].textContent = 'Try again bro'
+        }
+    })
 }
 
-function setColorSquares(squares,colori,difficulty){
-    if(difficulty == 3 && difficultyChanged){
-        resetColors(squares);
+//Functions for changing colorsk
+function fillArrayClrs(){
+    if(easyOrNot){
+        for(var i = 0; i < 3; i++){
+            colors[i] = randRGBGen()
+        }
     }else{
-        for(var i = 0; i < difficulty; i++){
-            squares[i].style.backgroundColor = colori[i];
+        for(var i = 0; i < 6; i++){
+            colors[i] = randRGBGen()
         }
     }
+
+    pickedColor = colors[Math.floor(Math.random() * colors.length)]
 }
 
+function randRGBGen(){
+    var r = Math.floor(Math.random() * 256)
+    var g = Math.floor(Math.random() * 256)
+    var b = Math.floor(Math.random() * 256)
 
-function resetColors(squares){
-    for(var i = 3; i < 6; i++){
-        squares[i].style.backgroundColor = '#232323';
+    var rgb = 'rgb(' + r + ', ' + g + ', ' + b + ')'
+    return rgb
+}
+
+function setSQRColors(color){
+    spans[0].textContent = pickedColor.toUpperCase()
+    
+    if(color == pickedColor){
+        for(var i = 0; i < colors.length; i++){
+            squares[i].style.backgroundColor = color
+        }
+    } else if(color == 'casual'){
+        for(var i = 0; i < colors.length; i++){
+            squares[i].style.backgroundColor = colors[i]
+        }
     }
 }
